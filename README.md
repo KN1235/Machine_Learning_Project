@@ -1,18 +1,20 @@
-Machine Learning Project: Music Lyrics Sentiment Analysis
+## Machine Learning Project: Music Lyrics Sentiment Analysis
 
 A learning project exploring sentiment/emotion classification on song lyrics using BERT, with experiment tracking via Weights & Biases (W&B).
 
-Overview
+## Overview
 
 This project fine-tunes a pre-trained BERT model (bert-base-uncased) to classify song lyrics into one of six emotions: sadness, joy, love, anger, fear, surprise. It covers the full pipeline from raw text cleaning to model training, using Hugging Face's transformers and datasets libraries.
 
 The dataset used is the Kaggle Spotify 500K Songs with Lyrics and Audio Features dataset, sampled down for experimentation.
 
-What This Project Covers
+The model is trained on the ARC High-Performance Computing Cluster at University of Calgary
+
+## What This Project Covers
 
 
-Data loading & sampling — Reading the lyrics dataset and mapping text emotion labels to integers
-Class distribution analysis — Visualizing how balanced (or imbalanced) the emotion classes are
+Data loading & sampling: Reading the lyrics dataset and mapping text emotion labels to integers
+Class distribution analysis: Visualizing how balanced (or imbalanced) the emotion classes are
 Text preprocessing:
 
 Expanding contractions (e.g. "I'd" → "I would") using contractions
@@ -24,12 +26,12 @@ Removing the most frequent and rarest words from the corpus
 
 Train/test splitting with scikit-learn
 Tokenization using the BERT tokenizer, converted into a Hugging Face Dataset/DatasetDict
-Model setup — Loading bert-base-uncased with a classification head swapped in for 6 emotion labels (AutoModelForSequenceClassification)
+Model setup: Loading bert-base-uncased with a classification head swapped in for 6 emotion labels (AutoModelForSequenceClassification)
 GPU device handling
-Training & experiment tracking — Using Hugging Face's Trainer with TrainingArguments, logged live to W&B (learning rate, batch size, optimizer, scheduler, etc.)
+Training & experiment tracking: Using Hugging Face's Trainer with TrainingArguments, logged live to W&B (learning rate, batch size, optimizer, scheduler, etc.)
 
 
-Tech Stack
+## Tech Stack
 
 
 Python, Pandas, NumPy
@@ -41,19 +43,21 @@ Weights & Biases (wandb) for experiment tracking
 Matplotlib (visualization)
 
 
-Notes / Learnings
+## Notes / Learnings
 
 
 This is part of my ongoing learning in NLP and applied machine learning, particularly around fine-tuning transformer models for text classification.
-Class imbalance in the emotion labels was identified early on — see the linked articles in the notebook for approaches considered (e.g. BERT-specific class imbalance handling, imbalanced-learn).
+Class imbalance in the emotion labels was identified early on. Please see the linked articles in the notebook for approaches considered (e.g. BERT-specific class imbalance handling, imbalanced-learn).
 A separate version of this project exists with stop words removed during preprocessing, to compare the effect on model performance.
 
+Additionally, no features engineering has been developed since the goal is to learn how to preprocess text data to specifically train for NLP tasks...
 
-Status
 
-Work in progress — model training and evaluation results to be added as the project develops.
+## Status
 
-How to Run
+Work in progress (model training and evaluation results to be added as the project develops.)
+
+## How to Run
 
 
 Install dependencies: transformers, datasets, torch, wandb, contractions, scikit-learn, pandas, numpy, matplotlib, evaluate
